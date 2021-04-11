@@ -1,15 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="menu">
+      <div class="icone-menu">
+          <h2>Bíblia-APP</h2>
+      </div>
+      <div class="barra-pesquisa">
+        <input type="text" name="" id="">
+      </div>
+    </div>
+    <router-view
+      @abLivro="abLivro"
+      :abreviacao="abreviacao"
+    />
+  </div>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
+  name: 'Bíblia Online',
+  data(){
+    return{
+    }
+  },
   components: {
-    HelloWorld
+  },
+  methods:{
   }
 }
 </script>
@@ -17,10 +34,32 @@ export default {
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.menu{
+  display: flex;
+  background-color: midnightblue;
+  height: 80px;
+  color: white;
+  font-size: 20px;
+}
+
+.icone-menu{
+  flex: 1 1 0;
+  margin-left: 20px;
+  max-width: 25%;
+}
+
+.barra-pesquisa{
+  flex: 1 1 0;
+}
+
+.barra-pesquisa input{
+  margin-top: 25px;
+  width: 70%;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid lightgrey;
 }
 </style>
