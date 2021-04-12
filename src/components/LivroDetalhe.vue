@@ -3,10 +3,10 @@
     <div class="container-capitulos">
         <h2>Você esta na seleção do livro de {{nomeLivro}}</h2>
 
-        <div v-for="(cap,index) in capitulos" :key="index">
-            <ul>
+        <div>
+            <ul v-for="(cap,index) in capitulos" :key="index">
                 <li>
-                    <a href="">Capítulo {{cap}}</a>
+                    <a :href="abbrev +'/'+ cap">Capítulo {{cap}}</a>
                 </li>
             </ul>
         </div>
@@ -23,18 +23,19 @@ export default {
     data(){
         return{
             capitulos: 0,
-            nomeLivro: ''
+            nomeLivro: '',
+            abbrev: '',
+            rota: ''
         }
     },
     mounted(){
         
         const route = useRoute();
         const abrevvLivro = route.params.nomeLivro;
-
+        this.abbrev = abrevvLivro;
         getDetalheLivro(abrevvLivro).then(resp => {
             this.capitulos = resp.chapters;
             this.nomeLivro = resp.name;
-            console.log(resp);
         }).catch(e => {
             console.log(e);
         });        

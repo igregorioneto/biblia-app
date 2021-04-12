@@ -5,13 +5,10 @@
           <h2>Bíblia-APP</h2>
       </div>
       <div class="barra-pesquisa">
-        <input type="text" name="" id="">
+        <input type="text" name="" id="" placeholder="Buscar...">
       </div>
     </div>
-    <router-view
-      @abLivro="abLivro"
-      :abreviacao="abreviacao"
-    />
+    <router-view/>
   </div>
   
 </template>
@@ -61,5 +58,6 @@ export default {
   height: 30px;
   border-radius: 10px;
   border: 1px solid lightgrey;
+  font-size: 20px;
 }
 </style>

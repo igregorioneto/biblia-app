@@ -10,7 +10,14 @@ const getDetalheLivro = async (abreviacao) => {
     return resp.data;
 }
 
+const getCapituloLivro = async (abreviacao,capitulo) => {
+    const resp = await 
+        axios.get(`https://www.abibliadigital.com.br/api/verses/nvi/${abreviacao}/${capitulo}`);
+    return resp.data;
+}
+
 export{
     getLivros,
-    getDetalheLivro
+    getDetalheLivro,
+    getCapituloLivro
 }
