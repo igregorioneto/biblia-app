@@ -2,10 +2,14 @@
   <div class="container">
     <div class="menu">
       <div class="icone-menu">
-          <h2>Bíblia-APP</h2>
+          <h2>
+            <a class="logo" href="/">
+              <img src="../public/img/biblia.png" alt="">
+            </a>
+            </h2>
       </div>
       <div class="barra-pesquisa">
-        <input type="text" name="" id="" placeholder="Buscar...">
+        <input type="text" name="" id="" placeholder="Buscar por versículo...">
       </div>
     </div>
     <router-view/>
@@ -34,12 +38,24 @@ export default {
   color: #2c3e50;
 }
 
+.logo{
+  text-decoration: none;
+  color: white;
+}
+
+.logo img{
+  width: 60px;
+  height: 60px;
+  margin-left: 30px;
+}
+
 .menu{
   display: flex;
-  background-color: midnightblue;
-  height: 80px;
+  background-color: lightgray;
+  height: 100px;
   color: white;
   font-size: 20px;
+  border-radius: 5px;
 }
 
 .icone-menu{
@@ -53,8 +69,8 @@ export default {
 }
 
 .barra-pesquisa input{
-  margin-top: 25px;
-  width: 70%;
+  margin-top: 30px;
+  width: 60%;
   height: 30px;
   border-radius: 10px;
   border: 1px solid lightgrey;

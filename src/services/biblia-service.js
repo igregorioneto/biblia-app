@@ -16,8 +16,14 @@ const getCapituloLivro = async (abreviacao,capitulo) => {
     return resp.data;
 }
 
+const getVersiculoAleatorio = async () => {
+    const resp = await axios.get(`https://www.abibliadigital.com.br/api/verses/nvi/random`);
+    return resp.data;
+}
+
 export{
     getLivros,
     getDetalheLivro,
-    getCapituloLivro
+    getCapituloLivro,
+    getVersiculoAleatorio
 }
