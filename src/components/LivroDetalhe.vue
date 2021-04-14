@@ -50,9 +50,13 @@ ul,li{
 
 ul,li, a {
     text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    text-align: center;
 }
 
 .container-capitulos{
+    margin-top: 15px;
     width: 80%;
     border: 1px solid lightgray;
     margin-left: 100px;

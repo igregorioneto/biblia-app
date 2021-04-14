@@ -9,7 +9,11 @@
             </h2>
       </div>
       <div class="barra-pesquisa">
-        <input type="text" name="" id="" placeholder="Buscar por versículo...">
+        <form @submit.prevent="buscarVerso" >
+            <input type="text" 
+              v-model="buscarVersiculo"
+              placeholder="Buscar por versículo...">
+        </form>
       </div>
     </div>
     <router-view/>
@@ -18,16 +22,28 @@
 </template>
 
 <script>
-
+import { buscarVersiculo } from './services/biblia-service.js';
 export default {
   name: 'Bíblia Online',
   data(){
     return{
+      buscarVersiculo: ''
     }
+  },
+  mounted(){
+    
   },
   components: {
   },
   methods:{
+    async buscarVerso(Event){
+      if(Event.type == 'submit'){
+        const buscar = this.buscarVersiculo;
+        buscarVersiculo(buscar).then(resp => {
+          console.log(resp);
+        });
+      }
+    }
   }
 }
 </script>
