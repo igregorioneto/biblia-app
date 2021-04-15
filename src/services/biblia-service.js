@@ -23,10 +23,11 @@ const getVersiculoAleatorio = async () => {
 
 const buscarVersiculo = async (buscar) => {
     try{
-        await axios.post(`https://www.abibliadigital.com.br/api/verses/${buscar}`,{
+        const resp = await axios.post('https://www.abibliadigital.com.br/api/verses/search',{
             "version":"nvi",
             "search": buscar
         });
+        return resp.data;
     }catch(e){
         console.log(e);
     }

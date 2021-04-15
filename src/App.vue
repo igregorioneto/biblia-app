@@ -16,7 +16,10 @@
         </form>
       </div>
     </div>
-    <router-view/>
+
+    <router-view
+      :versiculos="versiculos"/>
+
   </div>
   
 </template>
@@ -27,7 +30,8 @@ export default {
   name: 'Bíblia Online',
   data(){
     return{
-      buscarVersiculo: ''
+      buscarVersiculo: '',
+      versiculos: []
     }
   },
   mounted(){
@@ -38,9 +42,16 @@ export default {
   methods:{
     async buscarVerso(Event){
       if(Event.type == 'submit'){
+        this.$router.push('/buscarVersiculo');
         const buscar = this.buscarVersiculo;
+
         buscarVersiculo(buscar).then(resp => {
-          console.log(resp);
+          this.versiculos.push({
+            nome: resp.verses.book.name,
+            capitulo: resp.verses.chapter,
+            verso: resp.verses.number,
+            texto: resp.verses.text
+          });
         });
       }
     }
